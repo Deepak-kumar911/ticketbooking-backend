@@ -2,11 +2,12 @@ const router = require('express').Router();
 const { Coach } = require('../model/booking')
 
 
-router.get("/",async(req,res)=>{
+router.get("/bookinglist",async(req,res)=>{
     try {
         const coach = await Coach.find();
         res.status(200).send(coach)
     } catch (err) {
+        console.log(err);
         res.status(500).send(err)
     }
 })
